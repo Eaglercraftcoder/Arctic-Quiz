@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arctic Quiz</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #bdeeff, #eafaff);
+        margin: 0;
+        padding: 20px;
+        color: #17445c;
+    }
+    header {
+        text-align: center;
+        background: #176b91;
+        color: white;
+        padding: 25px;
+        border-radius: 15px;
+        margin-bottom: 25px;
+    }
+    header h1 { font-size: 36px; margin: 5px; }
+    .quiz-container {
+        max-width: 750px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px #8bbaca;
+    }
+    .question {
+        background: #e9f8ff;
+        padding: 15px;
+        margin-bottom: 18px;
+        border-radius: 10px;
+        border-left: 5px solid #249ac5;
+    }
+    .question h3 { margin-top: 0; }
+    label { display: block; padding: 7px; cursor: pointer; }
+    label:hover { background: #d0f0ff; border-radius: 5px; }
+    input[type="radio"] { margin-right: 8px; }
+    button {
+        background: #1687b5;
+        color: white;
+        border: none;
+        padding: 13px 25px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 10px 5px;
+    }
+    button:hover { background: #105c80; }
+    #result {
+        text-align: center;
+        font-size: 23px;
+        font-weight: bold;
+        margin-top: 20px;
+        color: #176b91;
+    }
+    #restart { display: none; }
+    .footer { text-align: center; margin-top: 25px; color: #39728a; }
+</style>
+</head>
+<body>
+<header>
+    <h1>❄️ Arctic Quiz 🐧</h1>
+    <p>Test your knowledge about the Arctic!</p>
+</header>
+
+<div class="quiz-container">
+    <form id="quizForm">
+        <div class="question">
+            <h3>1. Where is the Arctic located?</h3>
+            <label><input type="radio" name="q1" value="a"> A. Around the North Pole</label>
+            <label><input type="radio" name="q1" value="b"> B. Around the South Pole</label>
+            <label><input type="radio" name="q1" value="c"> C. In Africa</label>
+        </div>
+        <div class="question">
+            <h3>2. What animal is famous for living in the Arctic?</h3>
+            <label><input type="radio" name="q2" value="a"> A. Lion</label>
+            <label><input type="radio" name="q2" value="b"> B. Polar bear</label>
+            <label><input type="radio" name="q2" value="c"> C. Kangaroo</label>
+        </div>
+        <div class="question">
+            <h3>3. What is the Arctic mostly covered with?</h3>
+            <label><input type="radio" name="q3" value="a"> A. Sand</label>
+            <label><input type="radio" name="q3" value="b"> B. Grass</label>
+            <label><input type="radio" name="q3" value="c"> C. Ice and snow</label>
+        </div>
+        <div class="question">
+            <h3>4. Which bird lives in the Arctic?</h3>
+            <label><input type="radio" name="q4" value="a"> A. Arctic tern</label>
+            <label><input type="radio" name="q4" value="b"> B. Ostrich</label>
+            <label><input type="radio" name="q4" value="c"> C. Peacock</label>
+        </div>
+        <div class="question">
+            <h3>5. What is a baby polar bear called?</h3>
+            <label><input type="radio" name="q5" value="a"> A. Cub</label>
+            <label><input type="radio" name="q5" value="b"> B. Calf</label>
+            <label><input type="radio" name="q5" value="c"> C. Chick</label>
+        </div>
+        <div class="question">
+            <h3>6. Which ocean is in the Arctic?</h3>
+            <label><input type="radio" name="q6" value="a"> A. Indian Ocean</label>
+            <label><input type="radio" name="q6" value="b"> B. Arctic Ocean</label>
+            <label><input type="radio" name="q6" value="c"> C. Atlantic Ocean</label>
+        </div>
+        <div class="question">
+            <h3>7. What is the Northern Lights also called?</h3>
+            <label><input type="radio" name="q7" value="a"> A. Rainbow</label>
+            <label><input type="radio" name="q7" value="b"> B. Eclipse</label>
+            <label><input type="radio" name="q7" value="c"> C. Aurora Borealis</label>
+        </div>
+        <div class="question">
+            <h3>8. Which animal has tusks and lives in the Arctic?</h3>
+            <label><input type="radio" name="q8" value="a"> A. Walrus</label>
+            <label><input type="radio" name="q8" value="b"> B. Zebra</label>
+            <label><input type="radio" name="q8" value="c"> C. Camel</label>
+        </div>
+        <div class="question">
+            <h3>9. What do polar bears mainly eat?</h3>
+            <label><input type="radio" name="q9" value="a"> A. Berries</label>
+            <label><input type="radio" name="q9" value="b"> B. Seals</label>
+            <label><input type="radio" name="q9" value="c"> C. Grass</label>
+        </div>
+        <div class="question">
+            <h3>10. What is the Arctic fox known for?</h3>
+            <label><input type="radio" name="q10" value="a"> A. Changing its fur color with the seasons</label>
+            <label><input type="radio" name="q10" value="b"> B. Having stripes</label>
+            <label><input type="radio" name="q10" value="c"> C. Living underwater</label>
+        </div>
+        <div class="question">
+            <h3>11. Which season is usually the coldest in the Arctic?</h3>
+            <label><input type="radio" name="q11" value="a"> A. Summer</label>
+            <label><input type="radio" name="q11" value="b"> B. Spring</label>
+            <label><input type="radio" name="q11" value="c"> C. Winter</label>
+        </div>
+        <div style="text-align:center;">
+            <button type="button" onclick="checkAnswers()">Submit Quiz</button>
+            <button type="button" id="restart" onclick="restartQuiz()">Try Again</button>
+        </div>
+    </form>
+    <div id="result"></div>
+</div>
+
+<div class="footer">
+    <p>🐧 Thanks for exploring the Arctic! ❄️</p>
+</div>
+
+<script>
+function checkAnswers() {
+    const answers = {
+        q1: "a", q2: "b", q3: "c", q4: "a", q5: "a",
+        q6: "b", q7: "c", q8: "a", q9: "b", q10: "a", q11: "c"
+    };
+
+    let score = 0;
+    let unanswered = 0;
+
+    for (let question in answers) {
+        const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+        if (selected === null) {
+            unanswered++;
+        } else if (selected.value === answers[question]) {
+            score++;
+        }
+    }
+
+    if (unanswered > 0) {
+        document.getElementById("result").innerHTML =
+            "Please answer all 11 questions first!";
+        return;
+    }
+
+    document.getElementById("result").innerHTML =
+        "❄️ Quiz Complete! ❄️<br><br>" +
+        "You scored " + score + " out of 11!<br>" +
+        (score >= 9 ? "Excellent work! 🏆" :
+        score >= 6 ? "Good job! 🐧" :
+        "Nice try! Keep learning about the Arctic!");
+
+    document.getElementById("restart").style.display = "inline-block";
+
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.disabled = true;
+    });
+}
+
+function restartQuiz() {
+    document.getElementById("quizForm").reset();
+
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.disabled = false;
+    });
+
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("restart").style.display = "none";
+}
+</script>
+</body>
+</html>
